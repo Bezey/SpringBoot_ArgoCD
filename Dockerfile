@@ -1,9 +1,9 @@
-FROM gradle:8.7.0-jdk17 AS builder
+FROM gradle:8.7.0 AS builder
 WORKDIR /app
 COPY . .
 RUN gradle clean bootJar
 
-FROM eclipse-temurin:17-jdk-jammy
+FROM eclipse-temurin:1.8.0-jdk-jammy
 WORKDIR /app
 COPY --from=builder /app/build/libs/*.jar /app/spring-app.jar
 EXPOSE 8080
