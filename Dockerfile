@@ -1,4 +1,4 @@
-FROM gradle:8.7.0-jdk17 AS builder
+FROM gradle:8.7.0 AS builder
 WORKDIR /app
 COPY . .
 RUN gradle clean bootJar
